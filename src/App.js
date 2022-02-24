@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css'
+import Header from './components/Header'
+import Tasks from './components/Tasks';
+import Form from './components/Form';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [tasks, setTasks] = useState()
+
+  // Load the data
+  useEffect(() => {
+    const getTasks = async () => {
+      const data = await fetchTasks()
+      setTasks(data)
+    }
+    getTasks()
+  }, [])
+
+  // Fetch tasks
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:5000/tasks')
+    return await res.json()
+  }
+
+  // Remove task
+  const deleteTask = async (id) => {
+
+    // Remove from the server
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      // Remove from the UI
+      setTasks(() => tasks.filter((task) => {
+        return task.id != id
+      }))
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Tasks tasks={tasks} deleteTask={deleteTask} />
+      <Form />
     </div>
   );
 }
