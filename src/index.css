@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 * {
-  margin: 0;
+  margin-top: 2px;
   padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
@@ -68,4 +68,9 @@ input[type="text"] {
 
 a {
   margin-left: 10px;
+}
+
+.abouts-container
+{
+  margin: 10px;
 }

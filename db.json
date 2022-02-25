@@ -1,3 +1,22 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "text": "This is just a test",
+      "date": "01/01/2022",
+      "done": false,
+      "id": 1
+    },
+    {
+      "text": "This is just a test",
+      "date": "01/01/2022",
+      "done": false,
+      "id": 3
+    },
+    {
+      "text": "This is just a test",
+      "date": "01/01/2022",
+      "done": false,
+      "id": 4
+    }
+  ]
 }
