@@ -1,18 +1,13 @@
 import Button from "./Button"
 
-const Header = () => {
-
-  const toggleForm = () => {
-      alert(0)
-  }
-
+const Header = ({ toggleForm, showForm }) => {
   return (
     <div className='header-container'>
         <h2 className='header-title'>Tasks management</h2>
         <Button
-            text="Add task"
-            deleteTask={toggleForm}
-            color="green"
+            text={showForm ? "Close" : "Add"}
+            ButtonClicked={() => toggleForm()}
+            color={showForm ? "Red" : "Green"}
         />
     </div>
   )

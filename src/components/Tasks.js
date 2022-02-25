@@ -1,6 +1,6 @@
 import Task from './Task'
 
-const Tasks = ({ tasks, deleteTask }) => {
+const Tasks = ({ tasks, deleteTask, refreshTasks }) => {
   return (
     <div className='tasks-container'>
         {
@@ -9,6 +9,7 @@ const Tasks = ({ tasks, deleteTask }) => {
                     key={task.id}
                     task={task}
                     deleteTask={deleteTask}
+                    refreshTasks={refreshTasks}
                 />
             ))
         }
